@@ -11,6 +11,7 @@ import UIKit
 class ToDoListItem: Object{
     @objc dynamic var item: String = ""
     @objc dynamic var date: Date = Date()
+    @objc dynamic var uuid: String = ""
 }
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {

@@ -53,19 +53,23 @@ class EntryViewController: UIViewController, UITextFieldDelegate {
             let newItem = ToDoListItem()
             newItem.date = date
             newItem.item = text
-            realm.add(newItem)
             
-            try! realm.commitWrite()
             
             completionHandler?()
 
             let center = UNUserNotificationCenter.current()
             let content = UNMutableNotificationContent()
-            content.title = "To Do"
+            content.title = "TO DO"
             content.body = newItem.item
             content.sound = UNNotificationSound.default
             
             let uuid = UUID().uuidString
+            
+            newItem.uuid = uuid
+            
+            realm.add(newItem)
+            
+            try! realm.commitWrite()
 
             let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
     //        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
@@ -76,6 +80,10 @@ class EntryViewController: UIViewController, UITextFieldDelegate {
                 //Handle errors
                 print("fail")
             }
+
+            
+            
+            
             
             
             navigationController?.popToRootViewController(animated: true)
@@ -93,3 +101,4 @@ class EntryViewController: UIViewController, UITextFieldDelegate {
     }
 
 }
+

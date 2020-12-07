@@ -56,6 +56,34 @@ class TodoViewController: UIViewController {
                 item.item = text
                 item.date = setd
             }
+            let date = item.date
+            let dateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: date)
+            
+            
+            
+            
+            
+            
+            
+
+            let center = UNUserNotificationCenter.current()
+            let content = UNMutableNotificationContent()
+            content.title = "TO DO"
+            content.body = item.item
+            content.sound = UNNotificationSound.default
+            
+            
+            
+
+            let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+    //        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+
+            let request = UNNotificationRequest(identifier: item.uuid, content: content, trigger: trigger)
+
+            center.add(request) { (error) in
+                //Handle errors
+                print("fail")
+            }
         }
             
 
