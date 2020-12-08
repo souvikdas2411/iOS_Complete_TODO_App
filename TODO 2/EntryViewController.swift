@@ -12,6 +12,7 @@ class EntryViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet var textField : UITextField!
     @IBOutlet var datePicker : UIDatePicker!
+   
     
     private let realm = try! Realm()
     public var completionHandler: (() -> Void)?
@@ -30,6 +31,8 @@ class EntryViewController: UIViewController, UITextFieldDelegate {
         
         //Date obj(Date()) defaults to today
         datePicker.setDate(Date(), animated: true)
+        
+        
         
 
         
@@ -51,26 +54,28 @@ class EntryViewController: UIViewController, UITextFieldDelegate {
             realm.beginWrite()
             
             let newItem = ToDoListItem()
+            let uuid = UUID().uuidString
             newItem.date = date
             newItem.item = text
+            newItem.uuid = uuid
             
             
             completionHandler?()
 
+            
+            
+            realm.add(newItem)
+            
+            try! realm.commitWrite()
+            
+            
+            
             let center = UNUserNotificationCenter.current()
             
             let content = UNMutableNotificationContent()
             content.title = "TO DO"
             content.body = newItem.item
             content.sound = UNNotificationSound.default
-            
-            let uuid = UUID().uuidString
-            
-            newItem.uuid = uuid
-            
-            realm.add(newItem)
-            
-            try! realm.commitWrite()
 
             let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
     //        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
@@ -81,6 +86,7 @@ class EntryViewController: UIViewController, UITextFieldDelegate {
                 //Handle errors
                 print("fail")
             }
+            
             
 
             
@@ -101,6 +107,8 @@ class EntryViewController: UIViewController, UITextFieldDelegate {
         uialert.addAction(UIAlertAction(title: "Okay", style: UIAlertAction.Style.default, handler: nil))
        self.present(uialert, animated: true, completion: nil)
     }
+    
+
 
 }
 

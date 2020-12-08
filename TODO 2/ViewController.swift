@@ -32,6 +32,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return dateFormatter1
     }()
     
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLongPressGesture()
@@ -41,6 +43,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         data.sort {($0.date < $1.date)}
         table.delegate = self
         table.dataSource = self
+        
+        
+       
         
         
     }
@@ -75,7 +80,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
         }
         vc.item = item
+//        vc.modalPresentationStyle = .overCurrentContext
         vc.navigationItem.largeTitleDisplayMode = .never
+//        present(vc, animated: true)
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -95,16 +102,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
-//    @IBAction func handleGesture(_ sender: UILongPressGestureRecognizer) {
-//        if sender.state == .began
-//        {
-//            let alertController = UIAlertController(title: nil, message:
-//                "Long-Press Gesture Detected", preferredStyle: .alert)
-//            alertController.addAction(UIAlertAction(title: "OK", style: .default,handler: nil))
-//
-//            present(alertController, animated: true, completion: nil)
-//        }
-//    }
+
     
     @IBAction func didTapAddButton(){
         
@@ -158,4 +156,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
 }
+
+
 
