@@ -20,7 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4F3993BF2579E1D900B130F7 /* TODO 2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TODO 2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F3993BF2579E1D900B130F7 /* ToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F3993C22579E1D900B130F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4F3993C42579E1D900B130F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4F3993C62579E1D900B130F7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,7 +56,7 @@
 		4F3993C02579E1D900B130F7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4F3993BF2579E1D900B130F7 /* TODO 2.app */,
+				4F3993BF2579E1D900B130F7 /* ToDo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -80,9 +80,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4F3993BE2579E1D900B130F7 /* TODO 2 */ = {
+		4F3993BE2579E1D900B130F7 /* ToDo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4F3993D32579E1E000B130F7 /* Build configuration list for PBXNativeTarget "TODO 2" */;
+			buildConfigurationList = 4F3993D32579E1E000B130F7 /* Build configuration list for PBXNativeTarget "ToDo" */;
 			buildPhases = (
 				4F3993BB2579E1D900B130F7 /* Sources */,
 				4F3993BC2579E1D900B130F7 /* Frameworks */,
@@ -92,13 +92,13 @@
 			);
 			dependencies = (
 			);
-			name = "TODO 2";
+			name = ToDo;
 			packageProductDependencies = (
 				4F3993DA2579E34A00B130F7 /* Realm */,
 				4F3993DC2579E34A00B130F7 /* RealmSwift */,
 			);
 			productName = "TODO 2";
-			productReference = 4F3993BF2579E1D900B130F7 /* TODO 2.app */;
+			productReference = 4F3993BF2579E1D900B130F7 /* ToDo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -116,7 +116,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4F3993BA2579E1D900B130F7 /* Build configuration list for PBXProject "TODO 2" */;
+			buildConfigurationList = 4F3993BA2579E1D900B130F7 /* Build configuration list for PBXProject "ToDo" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -132,7 +132,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4F3993BE2579E1D900B130F7 /* TODO 2 */,
+				4F3993BE2579E1D900B130F7 /* ToDo */,
 			);
 		};
 /* End PBXProject section */
@@ -343,7 +343,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4F3993BA2579E1D900B130F7 /* Build configuration list for PBXProject "TODO 2" */ = {
+		4F3993BA2579E1D900B130F7 /* Build configuration list for PBXProject "ToDo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4F3993D12579E1E000B130F7 /* Debug */,
@@ -352,7 +352,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4F3993D32579E1E000B130F7 /* Build configuration list for PBXNativeTarget "TODO 2" */ = {
+		4F3993D32579E1E000B130F7 /* Build configuration list for PBXNativeTarget "ToDo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4F3993D42579E1E000B130F7 /* Debug */,
