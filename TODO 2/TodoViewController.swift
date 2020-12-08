@@ -11,7 +11,7 @@ import UIKit
 class TodoViewController: UIViewController {
     
     @IBOutlet var data : UITextView!
-    @IBOutlet var date : UILabel!
+//    @IBOutlet var date : UILabel!
     
     public var item : ToDoListItem?
     public var deletionHandler : (() -> Void)?
@@ -28,7 +28,7 @@ class TodoViewController: UIViewController {
         super.viewDidLoad()
 
         data.text = item?.item
-        date.text = Self.dateFormatter.string(from: item!.date)
+//        date.text = Self.dateFormatter.string(from: item!.date)
         
         //Looks for single or multiple taps.
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
