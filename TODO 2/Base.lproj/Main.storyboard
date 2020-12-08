@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="98" width="414" height="764"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="Dxa-3i-2Yy" detailTextLabel="BGd-4N-ifm" style="IBUITableViewCellStyleSubtitle" id="3ep-gZ-TIg">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="Dxa-3i-2Yy" detailTextLabel="BGd-4N-ifm" imageView="nhg-4H-isV" style="IBUITableViewCellStyleSubtitle" id="3ep-gZ-TIg">
                                         <rect key="frame" x="0.0" y="28" width="414" height="55.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3ep-gZ-TIg" id="hY5-cG-nAh">
@@ -28,19 +28,23 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Dxa-3i-2Yy">
-                                                    <rect key="frame" x="20" y="10" width="33" height="20.5"/>
+                                                    <rect key="frame" x="59" y="10" width="33" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BGd-4N-ifm">
-                                                    <rect key="frame" x="20" y="31.5" width="44" height="14.5"/>
+                                                    <rect key="frame" x="59" y="31.5" width="44" height="14.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="command" catalog="system" id="nhg-4H-isV">
+                                                    <rect key="frame" x="22" y="18.5" width="20" height="18"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -88,14 +92,20 @@
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="cQP-my-Drs">
                                 <rect key="frame" x="0.0" y="189" width="414" height="216"/>
                             </datePicker>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tz5-MT-Ws4">
+                                <rect key="frame" x="0.0" y="415" width="416" height="31"/>
+                            </switch>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Lua-sV-i6y"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="lFa-mi-1wE" firstAttribute="top" secondItem="Lua-sV-i6y" secondAttribute="top" constant="10" id="3Fk-uY-Dus"/>
+                            <constraint firstItem="tz5-MT-Ws4" firstAttribute="leading" secondItem="Lua-sV-i6y" secondAttribute="leading" id="3Ty-Tn-Ldd"/>
                             <constraint firstItem="Lua-sV-i6y" firstAttribute="trailing" secondItem="lFa-mi-1wE" secondAttribute="trailing" id="5AK-VM-x38"/>
                             <constraint firstItem="cQP-my-Drs" firstAttribute="leading" secondItem="Lua-sV-i6y" secondAttribute="leading" id="cEn-0D-iMx"/>
                             <constraint firstItem="lFa-mi-1wE" firstAttribute="leading" secondItem="Lua-sV-i6y" secondAttribute="leading" id="eKQ-7T-YcV"/>
+                            <constraint firstItem="Lua-sV-i6y" firstAttribute="trailing" secondItem="tz5-MT-Ws4" secondAttribute="trailing" id="hdk-tZ-Fis"/>
+                            <constraint firstItem="tz5-MT-Ws4" firstAttribute="top" secondItem="cQP-my-Drs" secondAttribute="bottom" constant="10" id="mbQ-Ec-uno"/>
                             <constraint firstItem="cQP-my-Drs" firstAttribute="top" secondItem="lFa-mi-1wE" secondAttribute="bottom" constant="5" id="u3v-Er-Spe"/>
                             <constraint firstItem="cQP-my-Drs" firstAttribute="trailing" secondItem="Lua-sV-i6y" secondAttribute="trailing" id="wJe-FH-uNt"/>
                         </constraints>
@@ -231,6 +241,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="command" catalog="system" width="128" height="115"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

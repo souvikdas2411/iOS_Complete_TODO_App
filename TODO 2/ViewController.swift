@@ -14,27 +14,34 @@ class ToDoListItem: Object{
     @objc dynamic var uuid: String = ""
 }
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate {
 
     @IBOutlet var table : UITableView!
     
     private var data = [ToDoListItem]()
     private let realm = try! Realm()
+    let sdata = ToDoListItem.self
+    let generator = UINotificationFeedbackGenerator()
+
+    
     
     static let dateFormatter1: DateFormatter = {
         let dateFormatter1 = DateFormatter()
-        dateFormatter1.dateStyle = .medium
+        dateFormatter1.dateStyle = .full
         return dateFormatter1
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupLongPressGesture()
 //        self.title = "TODO(s)"
         //Putting values in data from realm
         data = realm.objects(ToDoListItem.self).map({$0})
+        
         table.delegate = self
         table.dataSource = self
+        
         
     }
 
@@ -79,12 +86,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath){
         if editingStyle == .delete{
             let item = data[indexPath.row]
+            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [item.uuid])
             realm.beginWrite()
             realm.delete(item)
             try! realm.commitWrite()
+            generator.notificationOccurred(.success)
             self.refresh()
         }
     }
+    
+//    @IBAction func handleGesture(_ sender: UILongPressGestureRecognizer) {
+//        if sender.state == .began
+//        {
+//            let alertController = UIAlertController(title: nil, message:
+//                "Long-Press Gesture Detected", preferredStyle: .alert)
+//            alertController.addAction(UIAlertAction(title: "OK", style: .default,handler: nil))
+//
+//            present(alertController, animated: true, completion: nil)
+//        }
+//    }
     
     @IBAction func didTapAddButton(){
         
@@ -109,7 +129,31 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func refresh(){
         data = realm.objects(ToDoListItem.self).map({$0})
+        
+        //data = realm.objects(ToDoListItem.self)
         table.reloadData()
+    }
+    @objc func handleLongPress(_ gestureRecognizer: UILongPressGestureRecognizer){
+        if gestureRecognizer.state == .began {
+            let touchPoint = gestureRecognizer.location(in: self.table)
+            if let indexPath = table.indexPathForRow(at: touchPoint) {
+                let temp = data[indexPath.row]
+                
+                UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [temp.uuid])
+                realm.beginWrite()
+                realm.delete(data[indexPath.row])
+                try! realm.commitWrite()
+                
+                generator.notificationOccurred(.success)
+                self.refresh()
+            }
+        }
+    }
+    func setupLongPressGesture() {
+        let longPressGesture:UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongPress))
+        longPressGesture.minimumPressDuration = 1.0 // 1 second press
+        longPressGesture.delegate = self
+        self.table.addGestureRecognizer(longPressGesture)
     }
     
 }

@@ -58,6 +58,7 @@ class EntryViewController: UIViewController, UITextFieldDelegate {
             completionHandler?()
 
             let center = UNUserNotificationCenter.current()
+            
             let content = UNMutableNotificationContent()
             content.title = "TO DO"
             content.body = newItem.item
@@ -80,6 +81,7 @@ class EntryViewController: UIViewController, UITextFieldDelegate {
                 //Handle errors
                 print("fail")
             }
+            
 
             
             
