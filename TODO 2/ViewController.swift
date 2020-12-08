@@ -38,7 +38,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //        self.title = "TODO(s)"
         //Putting values in data from realm
         data = realm.objects(ToDoListItem.self).map({$0})
-        
+        data.sort {($0.date < $1.date)}
         table.delegate = self
         table.dataSource = self
         
@@ -131,6 +131,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         data = realm.objects(ToDoListItem.self).map({$0})
         
         //data = realm.objects(ToDoListItem.self)
+        data.sort {($0.date < $1.date)}
         table.reloadData()
     }
     @objc func handleLongPress(_ gestureRecognizer: UILongPressGestureRecognizer){
